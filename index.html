@@ -177,6 +177,9 @@
 <body>
     <div class="container">
         <h1 id="question">¿Quieres ser mi novia, mi amor? ❤️</h1>
+        <hr>
+<img src="img.png" alt="Una imagen especial para ti" class="imagen-especial">
+       
         <div class="buttons">
             <button id="yes-btn">¡Sí, mi cielo!</button>
             <button id="no-btn">No (ni de broma)</button>
@@ -219,23 +222,17 @@
         setInterval(createHeart, 300);
 
         // Movimiento del botón "No"
-        noBtn.addEventListener('mouseover', () => {
-            // Solo si la pantalla es grande, movemos el botón.
-            if (window.innerWidth > 600) {
-                const containerRect = container.getBoundingClientRect();
-                const noBtnRect = noBtn.getBoundingClientRect();
-
-                // Calcular nuevas posiciones dentro del contenedor de botones
-                // Se usa el contenedor para que el botón no se salga de la zona central
-                let newX = Math.random() * (buttonsContainer.clientWidth - noBtnRect.width);
-                let newY = Math.random() * (buttonsContainer.clientHeight - noBtnRect.height);
-
-                // Aplicar la nueva posición relativa al contenedor de botones
-                noBtn.style.position = 'absolute';
-                noBtn.style.left = `${newX}px`;
-                noBtn.style.top = `${newY}px`;
-                noBtn.style.transform = 'none'; // Desactivar el translateX para controlar con left/top
-            }
+       // --- CAMBIO CLAVE: Lógica para el botón "No" en móvil ---
+        noBtn.addEventListener('click', () => {
+            alert("¡Lo sentimos! Esta opción no está disponible. 😉 Intenta nuevamente... (Pulsa el botón 'Sí').");
+            
+            // Opcional: Deshabilitar el botón "No" por unos segundos
+            noBtn.disabled = true;
+            noBtn.textContent = 'Intentando de nuevo...';
+            setTimeout(() => {
+                noBtn.disabled = false;
+                noBtn.textContent = 'No (ni de broma)';
+            }, 2000); // Se habilita después de 2 segundos
         });
 
         // Cuando se hace clic en "Sí"
@@ -441,4 +438,5 @@
     </script>
     </body>
 </html>
+
 
