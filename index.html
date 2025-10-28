@@ -138,22 +138,27 @@
             display: none; /* Oculto inicialmente */
         }
 
-        #confirmation-image {
-            max-width: 80%;
-            border-radius: 15px;
-            margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            display: none; /* Oculto inicialmente */
-        }
+       #confirmation-image {
+    max-width: 80%;
+    height: auto; /* Asegura que la altura se ajuste automáticamente */
+    border-radius: 15px;
+    margin: 20px auto; /* CAMBIO CLAVE: Centra horizontalmente y añade margen */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: block; /* CAMBIO CLAVE: Hace que la imagen sea un elemento de bloque */
+}
 
         #download-btn {
-            background-color: #4CAF50; /* Verde para el botón de descarga */
-            margin-top: 20px;
-            display: none; /* Oculto inicialmente */
-        }
-        #download-btn:hover {
-            background-color: #45a049;
-        }
+    background-color: #4CAF50;
+    margin: 20px auto 0 auto; /* CAMBIO CLAVE: Centra horizontalmente y ajusta el margen superior */
+    display: block; /* CAMBIO CLAVE: Hace que el botón sea un elemento de bloque */
+    width: fit-content; /* CAMBIO CLAVE: El botón ocupa solo el ancho de su contenido */
+    max-width: 90%; /* Asegura que no sea demasiado ancho en móviles */
+    font-size: 1.2em; /* Puedes ajustar el tamaño de la fuente si quieres que sea más grande */
+    padding: 15px 30px; /* Ajusta el padding para que se vea bien */
+}
+#download-btn:hover {
+    background-color: #45a049;
+}
 
         /* Responsive adjustments */
         @media (max-width: 600px) {
@@ -448,6 +453,7 @@
     </script>
     </body>
 </html>
+
 
 
 
