@@ -130,31 +130,30 @@
             height: 100px; /* Suficiente altura para que el botón "No" se mueva dentro */
         }
 
-        #yes-message {
-            margin-top: 30px;
-            font-family: 'Dancing Script', cursive;
-            color: #d83d3d;
-            font-size: 2.5em;
-            display: none; /* Oculto inicialmente */
-        }
-
-       #confirmation-image {
+      #yes-message {
+    margin-top: 30px;
+    font-family: 'Dancing Script', cursive;
+    color: #d83d3d;
+    font-size: 2.5em;
+    display: none; /* <--- ¡ESTO ES CLAVE! */
+}
+#confirmation-image {
     max-width: 80%;
-    height: auto; /* Asegura que la altura se ajuste automáticamente */
+    height: auto; 
     border-radius: 15px;
-    margin: 20px auto; /* CAMBIO CLAVE: Centra horizontalmente y añade margen */
+    margin: 20px auto;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    display: block; /* CAMBIO CLAVE: Hace que la imagen sea un elemento de bloque */
+    display: none; /* <--- ¡ESTO ES CLAVE! */
 }
 
-        #download-btn {
+ #download-btn {
     background-color: #4CAF50;
-    margin: 20px auto 0 auto; /* CAMBIO CLAVE: Centra horizontalmente y ajusta el margen superior */
-    display: block; /* CAMBIO CLAVE: Hace que el botón sea un elemento de bloque */
-    width: fit-content; /* CAMBIO CLAVE: El botón ocupa solo el ancho de su contenido */
-    max-width: 90%; /* Asegura que no sea demasiado ancho en móviles */
-    font-size: 1.2em; /* Puedes ajustar el tamaño de la fuente si quieres que sea más grande */
-    padding: 15px 30px; /* Ajusta el padding para que se vea bien */
+    margin: 20px auto 0 auto;
+    display: none; /* <--- ¡ESTO ES CLAVE! */
+    width: fit-content;
+    max-width: 90%;
+    font-size: 1.2em;
+    padding: 15px 30px;
 }
 #download-btn:hover {
     background-color: #45a049;
@@ -453,6 +452,7 @@
     </script>
     </body>
 </html>
+
 
 
 
