@@ -254,11 +254,10 @@
                 createHeart();
             }
         });
-
-        // Descargar certificado
+// Descargar certificado
         downloadBtn.addEventListener('click', () => {
-            // Datos y mensaje personalizado. ¡IMPORTANTE: Reemplaza estos valores!
-            const NOMBRE_NOVIO = "El Macho Precioso"; // <--- REEMPLAZA ESTO
+            // ¡IMPORTANTE! REEMPLAZA estos valores con los nombres reales
+            const NOMBRE_NOVIO = "Tu Macho Precioso"; // <--- REEMPLAZA ESTO
             const NOMBRE_NOVIA = "María Belén Domínguez"; // <--- REEMPLAZA ESTO
 
             const fechaActual = new Date();
@@ -267,7 +266,7 @@
             const anio = fechaActual.getFullYear();
             const nombreArchivo = `Certificado_Novios_${dia}-${mes}-${anio}.html`;
             
-            // --- CÓDIGO HTML DEL CERTIFICADO ---
+            // --- CÓDIGO HTML DEL CERTIFICADO MEJORADO ---
             const certificadoHTML = `
                 <!DOCTYPE html>
                 <html lang="es">
@@ -275,112 +274,147 @@
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Certificado Oficial de Novios</title>
-                    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+                    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
                     <style>
-                        /* Estilos para que el certificado se vea bien al descargar/imprimir */
                         body {
                             font-family: 'Poppins', sans-serif;
                             display: flex;
                             justify-content: center;
                             align-items: center;
                             min-height: 100vh;
-                            background: url('https://i.ibb.co/C032b49/fondo-certificado.jpg') no-repeat center center fixed;
-                            background-size: cover;
+                            background: #f7f7f7; /* Fondo neutro */
                             margin: 0;
                             padding: 20px;
                             box-sizing: border-box;
-                            color: #4a4a4a;
                         }
                         .certificado {
-                            background-color: rgba(255, 255, 255, 0.95);
-                            border: 10px solid #d83d3d; 
-                            border-radius: 20px;
-                            padding: 40px;
-                            max-width: 800px;
+                            background-color: #ffffff;
+                            border: 15px double #AA0000; /* Borde doble y profundo */
+                            border-radius: 5px;
+                            padding: 60px;
+                            max-width: 900px;
                             width: 100%;
                             text-align: center;
-                            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+                            box-shadow: 0 0 0 10px #ffe0e0; /* Marco de sombra rosa */
                             position: relative;
+                            line-height: 1.5;
                         }
-                        .title {
-                            font-family: 'Dancing Script', cursive;
-                            font-size: 3.8em;
-                            color: #d83d3d;
-                            margin-bottom: 20px;
-                            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
-                        }
-                        .subtitle {
-                            font-size: 1.5em;
-                            color: #5a3e36;
+                        .header {
+                            border-bottom: 3px solid #AA0000;
+                            padding-bottom: 20px;
                             margin-bottom: 30px;
+                        }
+                        .header h1 {
+                            font-family: 'Playfair Display', serif;
+                            font-size: 3.5em;
+                            color: #AA0000;
+                            margin: 0;
+                            letter-spacing: 2px;
+                        }
+                        .header p {
+                            font-size: 1.2em;
+                            color: #888;
+                            font-style: italic;
+                            margin: 5px 0 0 0;
+                        }
+                        .body-cert p {
+                            font-size: 1.4em;
+                            margin: 15px 0;
+                        }
+                        .body-cert strong {
+                            font-family: 'Dancing Script', cursive;
+                            font-size: 3.2em;
+                            color: #D83D3D;
+                            display: block;
+                            margin: 20px 0;
+                        }
+                        .seal {
+                            margin: 40px 0 20px 0;
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            border-top: 1px solid #ddd;
+                            padding-top: 30px;
+                        }
+                        .signature-block {
+                            text-align: center;
+                        }
+                        .signature-block .line {
+                            display: block;
+                            width: 250px;
+                            height: 1px;
+                            background: #444;
+                            margin: 5px auto;
+                        }
+                        .signature-block p {
+                            font-size: 1.1em;
+                            margin-top: 10px;
+                            color: #555;
                             font-weight: 600;
                         }
-                        .names {
-                            font-family: 'Dancing Script', cursive;
-                            font-size: 2.8em;
-                            color: #d83d3d;
-                            margin: 20px 0;
-                            line-height: 1.2;
-                        }
-                        .message {
-                            font-size: 1.2em;
-                            color: #6d6d6d;
-                            margin-bottom: 25px;
-                            line-height: 1.7;
-                        }
                         .date {
-                            font-size: 1.1em;
-                            color: #888;
                             margin-top: 30px;
-                        }
-                        .signature {
-                            margin-top: 40px;
-                            font-family: 'Dancing Script', cursive;
-                            font-size: 2em;
-                            color: #d83d3d;
+                            font-size: 1.2em;
+                            color: #777;
+                            font-style: italic;
+                            border-top: 1px dashed #ddd;
+                            padding-top: 15px;
                         }
                         .divine-approval {
-                            font-size: 0.9em;
-                            color: #999;
-                            margin-top: 15px;
-                            font-style: italic;
-                        }
-                        .heart-icon {
-                            color: #ff6b6b;
-                            font-size: 1.5em;
-                            vertical-align: middle;
+                            font-size: 1em;
+                            color: #AA0000;
+                            margin-top: 20px;
+                            font-weight: bold;
                         }
                     </style>
                 </head>
                 <body>
                     <div class="certificado">
-                        <h1 class="title">¡Certificado Oficial de Novios! <span class="heart-icon">❤️</span></h1>
-                        <p class="subtitle">Conferido a la pareja más hermosa y destinada</p>
+                        <div class="header">
+                            <h1>CERTIFICADO OFICIAL DE NOVIAZGO</h1>
+                            <p>Registro de Amor Eterno N° ${dia}${mes}${anio}-${Math.floor(Math.random() * 9000) + 1000}</p>
+                        </div>
+
+                        <div class="body-cert">
+                            <p style="font-size: 1.8em; color: #AA0000;">Por la presente, se certifica que</p>
+                            
+                            <strong>${NOMBRE_NOVIO}</strong>
+                            <p style="font-size: 1.8em; color: #AA0000;">y</p>
+                            <strong>${NOMBRE_NOVIA}</strong>
+                            
+                            <p>Han entrado formalmente en un **Compromiso Oficial de Noviazgo** el día de hoy, bajo las siguientes cláusulas inquebrantables:</p>
+                            
+                            <ul style="list-style-type: none; padding: 0; max-width: 600px; margin: 20px auto; text-align: left; font-size: 1.1em;">
+                                <li>✅ Promesa de risas infinitas y apoyo incondicional.</li>
+                                <li>✅ Obligación de abrazos diarios y comunicación sincera.</li>
+                                <li>✅ Aceptación de aventuras, sueños compartidos y crecimiento mutuo.</li>
+                            </ul>
+                            
+                            <p style="font-style: italic;">Se les otorga el título de **Pareja Oficial** con todos los derechos y deberes que conlleva el Amor Verdadero.</p>
+                        </div>
+
+                        <div class="seal">
+                            <div class="signature-block">
+                                <span class="line"></span>
+                                <p>Firma del Novio</p>
+                            </div>
+                            <div class="signature-block">
+                                <span class="line"></span>
+                                <p>Firma de la Novia</p>
+                            </div>
+                        </div>
                         
-                        <p class="names">
-                            ${Cristian_Muñoz_Muñoz}<br>
-                            y<br>
-                            ${Maria_Belen_Dominguez}
+                        <p class="date">
+                            Emitido en el Corazón de ambos, el **${dia} de ${obtenerNombreMes(mes)} del ${anio}**.
                         </p>
-                        
-                        <p class="message">
-                            Por medio de este documento, se deja constancia oficial del inicio de un amor verdadero y eterno.
-                            Han demostrado ser la combinación perfecta, con risas, complicidad y un cariño que ilumina el mundo.
-                            Este certificado sella un compromiso de amor, apoyo, aventuras juntos y muchísimos besos.
-                            ¡Que su historia de amor sea siempre su favorita!
+                        <p class="divine-approval">
+                            "Tres cosas hay permanentes: la fe, la esperanza y el amor. Pero la más importante es el amor." - 1 Corintios 13:13. **¡Certificado y Aprobado por Dios!**
                         </p>
-                        
-                        <p class="date">Emitido el ${dia} de ${obtenerNombreMes(mes)} del ${anio}</p>
-                        
-                        <p class="signature">
-                            Con el aval de Cupido y un amor sincero.<br>
-                            <span style="font-size: 0.8em; color: #888;">Testificado por el corazón de ambos</span>
-                        </p>
-                        <p class="divine-approval">"Y sobre todo, ámense profundamente unos a otros..." - 1 Pedro 4:8. ¡Aprobado por Diosito! ✨</p>
                     </div>
                 </body>
                 </html>
             `;
+            // --- FIN CÓDIGO HTML DEL CERTIFICADO ---
             
             // Función auxiliar para obtener el nombre del mes (solo para el certificado)
             function obtenerNombreMes(numeroMes) {
@@ -388,11 +422,10 @@
                     "enero", "febrero", "marzo", "abril", "mayo", "junio",
                     "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
                 ];
-                // El mes es 1-indexado (enero=1) y el array es 0-indexado
                 return meses[parseInt(numeroMes) - 1]; 
             }
 
-            // Lógica para forzar la descarga del HTML como archivo .html
+            // Lógica de descarga
             const blob = new Blob([certificadoHTML], { type: 'text/html' });
             const url = URL.createObjectURL(blob);
             
@@ -408,3 +441,4 @@
     </script>
     </body>
 </html>
+
