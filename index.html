@@ -298,17 +298,20 @@
                             padding: 20px;
                             box-sizing: border-box;
                         }
-                        .certificado {
-                            background-color: #ffffff;
-                            border: 15px double #AA0000; /* Borde doble y profundo */
-                            border-radius: 5px;
-                            padding: 60px;
-                            max-width: 900px;
-                            width: 100%;
-                            text-align: center;
-                            box-shadow: 0 0 0 10px #ffe0e0; /* Marco de sombra rosa */
-                            position: relative;
-                            line-height: 1.5;
+                    .certificado {
+    background-color: #ffffff;
+    border: 10px double #AA0000; /* Reducimos un poco el borde */
+    border-radius: 5px;
+    padding: 20px; /* Reducimos el padding para pantallas pequeñas */
+    max-width: 900px;
+    width: 95%; /* <--- CAMBIO CLAVE: Aseguramos que solo use el 95% del espacio disponible */
+    box-sizing: border-box; /* <--- CAMBIO CLAVE: Incluye padding y borde dentro del 95% del ancho */
+    text-align: center;
+    box-shadow: 0 0 0 5px #ffe0e0; /* Reducimos la sombra del marco */
+    position: relative;
+    line-height: 1.5;
+    margin: 20px auto; /* Centramos el certificado */
+}
                         }
                         .header {
                             border-bottom: 3px solid #AA0000;
@@ -377,6 +380,18 @@
                             margin-top: 20px;
                             font-weight: bold;
                         }
+                        @media (max-width: 500px) {
+    .certificado {
+        padding: 20px 10px; /* Reducimos el padding horizontal aún más */
+        border: 5px double #AA0000; /* Borde aún más delgado */
+    }
+    .header h1 {
+        font-size: 2.5em;
+    }
+    .body-cert strong {
+        font-size: 2.5em;
+    }
+}
                     </style>
                 </head>
                 <body>
@@ -452,6 +467,7 @@
     </script>
     </body>
 </html>
+
 
 
 
