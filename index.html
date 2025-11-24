@@ -22,9 +22,11 @@
             background: linear-gradient(135deg, #2c3e50 0%, #34495e 25%, #5d6d7e 50%, #707b8a 75%, #85929e 100%);
             background-size: 400% 400%;
             animation: sadGradient 20s ease infinite;
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
             position: relative;
             color: #4a4a4a;
+            padding: 20px 0;
         }
 
         @keyframes sadGradient {
@@ -140,6 +142,8 @@
             position: relative;
             z-index: 10;
             border: 2px solid rgba(150, 150, 150, 0.3);
+            margin: 20px auto;
+            min-height: auto;
         }
 
         h1 {
@@ -366,30 +370,82 @@
         }
 
         @media (max-width: 600px) {
+            body {
+                padding: 10px 0;
+                align-items: flex-start;
+            }
+            
+            .container {
+                padding: 30px 20px;
+                width: 95%;
+                margin: 10px auto;
+            }
+            
             h1 {
-                font-size: 2.3em;
+                font-size: 2em;
+                margin-bottom: 10px;
             }
+            
             .emoji-big {
-                font-size: 3em;
+                font-size: 2.5em;
+                margin: 5px 0;
             }
+            
             .message-text {
-                font-size: 1.1em;
+                font-size: 1em;
+                margin: 15px 0;
             }
+            
+            .imagen-especial {
+                max-width: 90%;
+                margin: 15px auto;
+            }
+            
             button {
-                padding: 14px 28px;
+                padding: 12px 25px;
                 font-size: 1em;
+                width: 100%;
+                margin: 8px 0;
             }
+            
             #yes-btn, #yes-btn-2, #yes-btn-3, #yes-btn-4, #yes-btn-5 {
-                font-size: 1.3em;
-                padding: 16px 35px;
+                font-size: 1.2em;
+                padding: 14px 30px;
             }
+            
             .final-letter {
-                font-size: 1em;
-                padding: 25px;
+                font-size: 0.95em;
+                padding: 20px;
+                line-height: 1.7;
             }
+            
+            .final-letter::before {
+                font-size: 2em;
+                top: -15px;
+                right: 10px;
+            }
+            
+            .forgiveness-badge {
+                font-size: 1.1em;
+                padding: 12px 20px;
+                margin: 20px auto;
+            }
+            
             .buttons {
                 flex-direction: column;
-                gap: 15px;
+                gap: 10px;
+                margin-top: 25px;
+            }
+            
+            .stage-number {
+                font-size: 0.8em;
+                padding: 6px 12px;
+                top: 10px;
+                right: 10px;
+            }
+            
+            hr {
+                margin: 15px 0;
             }
         }
     </style>
@@ -492,7 +548,7 @@
                 <p style="font-size: 1.2em; color: #555; margin-bottom: 15px; font-style: italic;">
                     🎵 Esta canción describe todo lo que estoy sintiendo... 🎵
                 </p>
-                <a href="https://www.youtube.com/watch?v=bqtMJ391poA&list=RDbqtMJ391poA&start_radio=1" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-size: 1.2em; font-weight: 600; box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4); transition: all 0.3s ease;">
+                <a href="https://www.youtube.com/watch?v=p1JmzB6E-C8&list=RDp1JmzB6E-C8&start_radio=1" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-size: 1.2em; font-weight: 600; box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4); transition: all 0.3s ease;">
                     🎶 Escuchar canción 💔
                 </a>
             </div>
